@@ -5,29 +5,40 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
         double score;
+        String grade;
+        int scholarship;
+
         System.out.print("Enter your score (0-100): ");
         score = input.nextDouble();
 
-        System.out.println("Score " + score + " you get: ");
-
-        if (score > 95 && score <= 100) {
-            System.out.println("Grade: A");
-            System.out.println("Scholarship: Full");
-        } else if (score >= 88) {
-            System.out.println("Grade: B");
-            System.out.println("Scholarship: 80%");
-        } else if (score >= 80) {
-            System.out.println("Grade: C");
-            System.out.println("Scholarship: 70%");
-        } else if (score >= 70) {
-            System.out.println("Grade: D");
-            System.out.println("Scholarship: 50%");
-        } else if (score >= 50) {
-            System.out.println("- Grade: E");
-            System.out.println("- Scholarship: 30%");
-        } else {
-            System.out.println("Grade: F");
-            System.out.println("Scholarship: 10%");
+        if (score < 0 || score > 100) {
+            System.out.println("Invalid score. Please enter 0 - 100.");
+            return;
         }
+        if (score > 95) {
+            grade = "A";
+            scholarship = 100;
+        } else if (score >= 88) {
+            grade = "B";
+            scholarship = 80;
+        } else if (score >= 80) {
+            grade = "C";
+            scholarship = 70;
+        } else if (score >= 70) {
+            grade = "D";
+            scholarship = 60;
+        } else if (score >= 50) {
+            grade = "E";
+            scholarship = 50;
+        } else {
+            grade = "F";
+            scholarship = 10;
+        }
+
+        System.out.println("-------------[ Result]------------");
+        System.out.println("Score " + score + " you get: ");
+        System.out.println("Grade: " + grade);
+        System.out.println("Scholarship: " + scholarship + "%");
+
     }
 }
